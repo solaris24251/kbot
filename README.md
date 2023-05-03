@@ -16,6 +16,7 @@ Prerequisites (for all installation methods)
 
     Golang should be installed
     Bot token should be assigned to system env variable with name TELE_TOKEN
+    telebot.Context in this code refers to the context of a Telegram message received by the bot.
 
 
 Local build and run
@@ -24,7 +25,7 @@ Local build and run
     ./kbot start
 
 Docker
-
-    Build image: docker build -t kbot . 
+    
+    Build image: docker build -t kbot --build-arg APP_VERSION=$APP_VERSION .
     Run container: docker run -d --name kbot -e TELE_TOKEN=$TELE_TOKEN kbot
     Stop and remove container: docker stop kbot | docker rm kbot
