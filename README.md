@@ -29,3 +29,17 @@ Docker
     Build image: docker build -t kbot --build-arg APP_VERSION=$APP_VERSION .
     Run container: docker run -d --name kbot -e TELE_TOKEN=$TELE_TOKEN kbot
     Stop and remove container: docker stop kbot | docker rm kbot
+
+Make
+
+    # зінними TARGETOS та TARGETARCH обираємо бажану платформу та архітектуру
+    make build TARGETOS=darwin TARGETARCH=arm64  - build app
+    make image TARGETOS=darwin TARGETARCH=arm64  - build docker image with app
+    make push TARGETOS=darwin TARGETARCH=arm64   - push docker image to gcr.io container registry
+    make clean TARGETOS=darwin TARGETARCH=arm64  - delete docker image
+
+    # без змінних TARGETOS та TARGETARCH по замовчуванню білд під linux_amd64
+    make build 
+    make image
+    make push
+    make clean
