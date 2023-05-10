@@ -78,8 +78,6 @@ build-linux-arm64: format get
 	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -v -o kbot -ldflags "-X="github.com/den-vasyliev/kbot/cmd.appVersion=${VERSION}
 
 
-
-# docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 image:
 	docker build --build-arg TARGETOS=${TARGETOS} --build-arg TARGETARCH=${TARGETARCH} . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
