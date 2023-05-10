@@ -18,6 +18,7 @@ get:
 	go get
 
 # Перевірка параметрів командного рядка
+
 ifeq ($(TARGETOS),)
     TARGETOS=linux
 endif
