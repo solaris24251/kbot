@@ -4,7 +4,7 @@
 
 replicaCount: 1
 image:
-  repository: solaris24/learn
+  repository: ghcr.io/solaris24251
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v1.0.10-f4c1c0a"
