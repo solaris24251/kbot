@@ -22,4 +22,4 @@ ingress:
   enabled: true
 securityContext:
   privileged: true
-chartVersion: null.2.null
+chartVersion: 0.2.0
