@@ -7,15 +7,13 @@ image:
   repository: solaris24/learn
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.10-f4c1c0a"
+  tag: "v1.0.10-89ca28b"
   arch: amd64
   os: linux
-
 secret:
   name: kbot
   tokenKey: token
   tokenName: "TELE_TOKEN"
-
 autoscaling:
   enabled: false
 serviceAccount:
@@ -24,3 +22,4 @@ ingress:
   enabled: true
 securityContext:
   privileged: true
+chartVersion: null.1.null
