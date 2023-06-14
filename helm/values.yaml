@@ -3,21 +3,28 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+<<<<<<< HEAD
 chartVersion: 0.7.0
 
+=======
+>>>>>>> 30e0a2ef571d6e12e684959434de1968c07079bc
 image:
   repository: solaris24/learn
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.9-76b4cf2"
+  tag: "v1.0.10-f4c1c0a"
   arch: amd64
+<<<<<<< HEAD
   os: linux
 
 
+=======
+>>>>>>> 30e0a2ef571d6e12e684959434de1968c07079bc
 secret:
   name: kbot
   tokenKey: token
   tokenName: "TELE_TOKEN"
+<<<<<<< HEAD
 
 autoscaling:
   enabled: false
@@ -27,3 +34,6 @@ ingress:
   enabled: true
 securityContext:
   privileged: true
+=======
+chartVersion: null.1.null
+>>>>>>> 30e0a2ef571d6e12e684959434de1968c07079bc
