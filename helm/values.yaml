@@ -7,7 +7,7 @@ image:
   repository: ghcr.io/solaris24251
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.10-55e01d5"
+  tag: "v1.0.10-a3db9ee"
   arch: amd64
   os: linux
 secret:
@@ -22,4 +22,4 @@ ingress:
   enabled: true
 securityContext:
   privileged: true
-chartVersion: 0.3.0
+chartVersion: 0.4.0
