@@ -3,7 +3,7 @@ REGISTRY=gcr.io/k3s-demo-363719
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 #TARGETOS=linux #linux darwin windows
 #TARGETARCH=arm64 #amd64 arm64
-IMAGE_TAG=${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+IMAGE_TAG=${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 format:
 	gofmt -s -w ./
@@ -80,10 +80,10 @@ build-linux-arm64: format get
 
 
 image:
-	docker build --build-arg TARGETOS=${TARGETOS} --build-arg TARGETARCH=${TARGETARCH} . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker build --build-arg TARGETOS=${TARGETOS} --build-arg TARGETARCH=${TARGETARCH} . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 push:
-	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 clean:
 	rm -rf kbot kbot.exe
