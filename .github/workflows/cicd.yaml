@@ -38,3 +38,43 @@ jobs:
 
       - name: BuildPush
         run: make image push APP=${{ env.APP }} REGISTRY=ghcr.io/${{ github.actor }} VERSION=${{env.VERSION}}
+
+  #continuous delivery
+  cd:
+    name: CD
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: echo "VERSION=$(git describe --tags --abbrev=0)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+ 
+      - name: Increment version
+        run: |
+          # Read version from helm/values.yaml
+          CVERSION=$(yq e '.chartVersion' helm/values.yaml)
+          
+          # Split into major, minor and patch
+          MAJOR_VERSION=$(echo $CVERSION | cut -d. -f1)
+          MINOR_VERSION=$(echo $CVERSION | cut -d. -f2)
+          PATCH_VERSION=$(echo $CVERSION | cut -d. -f3)
+          
+          # Increment minor version
+          NEW_VERSION="${MAJOR_VERSION}.$((MINOR_VERSION + 1)).${PATCH_VERSION}"
+          
+          # Update values.yaml with new version
+          yq e -i ".chartVersion = \"$NEW_VERSION\"" helm/values.yaml
+        
+      - name: Modify values.yaml
+        run: |
+          yq e -i ".image.tag = \"${{ env.VERSION }}\"" helm/values.yaml
+
+      #GIT TOKEN NEW VALUE RW
+      - run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+          git commit -am "update version $VERSION"
+          git push
