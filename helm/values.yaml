@@ -3,6 +3,7 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+chartVersion: 0.7.0
 
 image:
   repository: solaris24/learn
@@ -10,8 +11,19 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v1.0.9-76b4cf2"
   arch: amd64
+  os: linux
+
 
 secret:
   name: kbot
   tokenKey: token
   tokenName: "TELE_TOKEN"
+
+autoscaling:
+  enabled: false
+serviceAccount:
+  create: false
+ingress:
+  enabled: true
+securityContext:
+  privileged: true
