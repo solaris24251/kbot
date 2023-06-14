@@ -3,15 +3,14 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-
 image:
   repository: solaris24/learn
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.9-76b4cf2"
+  tag: "v1.0.10-f4c1c0a"
   arch: amd64
-
 secret:
   name: kbot
   tokenKey: token
   tokenName: "TELE_TOKEN"
+chartVersion: null.1.null
