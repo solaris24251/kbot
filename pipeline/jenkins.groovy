@@ -4,7 +4,7 @@ pipeline {
         choice(name: 'OS', choices: ['linux', 'darwin', 'windows', 'all'], description: 'Pick OS')
     }
     environment {
-        REPO = "https://github.com/mirik12/kbot"
+        REPO = "https://github.com/solaris24251/kbot"
         BRANCH = 'main'
     }
     stages {
