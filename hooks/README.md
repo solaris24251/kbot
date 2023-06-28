@@ -19,3 +19,5 @@ You now have the gitleaks pre-commit hook enabled globally.
 ## Usage notes
 - `make detect` - detect secrets in code
 - `make version` - displaying the installed version of gitleaks
+
+[![gitleaks](https://asciinema.org/a/fKXojoIloS0NpKAadeQzl0FMF)](https://asciinema.org/a/fKXojoIloS0NpKAadeQzl0FMF)
