@@ -1,0 +1,11 @@
+data:
+  admin-password: "aGFhc0ZHQ2ZmVU9KRlBZQXJqekxvNw=="
+  admin-user: "YWRtaW4="
+  tokenKey: "SDF5sdfsdfWE3@#$@5y34gB^3h3hb3"
+  tokenName: "TELE_TOKEN"
+
+secret:
+  name: kbot
+  tokenKey: "aGFhc0ZHQ2ZmVU9KRlBZQXJqekxvNw=="
+  tokenName: "TELE_TOKEN"
+  password: "aGFhc0ZHQ2ZmVU9KRlBZQXJqekxvNw=="
