@@ -11,6 +11,6 @@ image:
   arch: amd64
 secret:
   name: kbot
-  tokenKey: SDF5WE3@#$@5y34gB^3h3hb3
+  tokenKey: "SDF5WE3@#$@5y34gB^3h3hb3"
   tokenName: "TELE_TOKEN"
   password: 134234234234234
