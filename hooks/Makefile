@@ -9,7 +9,7 @@ endif
 
 URL := $(shell curl -sSfL https://api.github.com/repos/zricethezav/gitleaks/releases/latest | grep browser_download_url | cut -d '"' -f 4 | grep ${TARGETOS}"_"${TARGETARCH})
 
-GIT_SUPPORT_PATH := $(HOME)/.git-support
+GIT_SUPPORT_PATH := $(HOME)/.git-dir
 HOOKS := $(GIT_SUPPORT_PATH)/hooks
 PRECOMMIT := $(GIT_SUPPORT_PATH)/hooks/pre-commit
 PATTERNS := $(GIT_SUPPORT_PATH)/gitleaks.toml
