@@ -1,17 +1,15 @@
 # Default values for helm.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-
 replicaCount: 1
-
 image:
   repository: solaris24/learn
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
+
   tag: "v1.0.9-76b4cf2"
   arch: amd64
-
 secret:
   name: kbot
-  tokenKey: token
+  tokenKey: SDF5WE3@#$@5y34gB^3h3hb3
   tokenName: "TELE_TOKEN"
