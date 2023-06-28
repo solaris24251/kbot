@@ -1,15 +1,17 @@
 #!/bin/sh
 
-git_dir=$(git rev-parse --git-dir)
+# Use a variable to store the path to the .git directory
+GIT_DIR=$(git rev-parse --git-dir)
 
-if [ -f "$git_dir/hooks/pre-commit" ]; then
+# Check if the pre-commit file exists in the .git/hooks directory
+if [ -f "$GIT_DIR/hooks/pre-commit" ]; then
     set -e
-    "$git_dir/hooks/pre-commit" "$@"
+    "$GIT_DIR/hooks/pre-commit" "$@"
     set +e
 fi
 
-# Prompt the user for a yes/no response.
-# Exit codes:
+# Function to prompt the user for a yes/no response
+# Return codes:
 #   0: user entered yes
 #   10: user entered no
 #
@@ -38,6 +40,7 @@ prompt_yn() {
 }
 
 run_gitleaks() {
+    # Run gitleaks with the protect flag to check changes
     # Running _without_ `--redact` is safer in a local development
     # env, as you need unobfuscated feedback on whether you're
     # committing a real password, or an example one.
@@ -68,10 +71,12 @@ skip_gitleaks() {
     fi
 }
 
+# Check if gitleaks check is enabled
 gitleaksEnabled=$(git config --bool hooks.gitleaks)
 if [ "$gitleaksEnabled" = "false" ]; then
     echo "You're skipping gitleaks since hooks.gitleaks is 'false'"
     skip_gitleaks
+# Check if SKIP=gitleaks flag is set
 elif [ "$SKIP" = "gitleaks" ]; then
     echo "You're skipping gitleaks since SKIP=gitleaks"
     skip_gitleaks
